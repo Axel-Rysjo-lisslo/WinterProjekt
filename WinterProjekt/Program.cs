@@ -13,7 +13,9 @@ while (!R.WindowShouldClose()) {
     R.BeginDrawing();
     R.ClearBackground(Color.WHITE);
 
+    R.DrawRectangle((int)p.pos.X, (int)p.pos.Y, p.width, p.heigth, Color.BLUE);
 
+p.Update();
     R.EndDrawing();
   
 
