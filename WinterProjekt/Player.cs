@@ -3,8 +3,8 @@ using System;
 
 public class Player
 {
-    public Vector2 spawn { get; set; } = new(800, 500);
-    public int speed { get; set; } = 3;
+    public Vector2 spawn { get; set; } = new(100, 100);
+    public int speed { get; set; } = 10;
     
     public Vector2 pos { get; set; }
 
