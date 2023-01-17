@@ -1,6 +1,5 @@
 using System;
 
-
 public class Player
 {
     public Vector2 spawn { get; set; } = new(100, 100);
@@ -16,7 +15,7 @@ public class Player
     pos += Movement();
     }
 
-
+//movment för gubben 
     public Vector2 Movement()
     {
         Vector2 temp = new(0, 0);
@@ -39,8 +38,6 @@ public class Player
 
         return temp; 
     }
-
-
 }
 
 
