@@ -2,41 +2,41 @@ using System;
 
 public class Player
 {
-    public Vector2 spawn { get; set; } = new(100, 100);
-    public int speed { get; set; } = 10;
+    public Vector2 Spawn { get; set; } = new(100, 100);
+    public int Speed { get; set; } = 10;
     
-    public Vector2 pos { get; set; }
+    public Vector2 Pos { get; set; }
 
-    public int heigth{ get; set; } = 60;
-    public int width  { get; set; } = 60;
+    public int Heigth{ get; set; } = 60;
+    public int Width  { get; set; } = 60;
 
     public void Update()
     {
-    pos += Movement();
+    Pos += Movement();
     }
 
 //movment för gubben 
     public Vector2 Movement()
     {
-        Vector2 temp = new(0, 0);
+        Vector2 Temp = new(0, 0);
         if (R.IsKeyDown(KeyboardKey.KEY_D))
         {
-            temp.X = speed;
+            Temp.X = Speed;
         }
         else if(R.IsKeyDown(KeyboardKey.KEY_A))
         {
-          temp.X = -speed;
+          Temp.X = -Speed;
         }
         if(R.IsKeyDown(KeyboardKey.KEY_W))
         {
-           temp.Y = -speed; 
+           Temp.Y = -Speed; 
         }
         else if(R.IsKeyDown(KeyboardKey.KEY_S))
         {
-           temp.Y = speed; 
+           Temp.Y = Speed; 
         }
 
-        return temp; 
+        return Temp; 
     }
 }
 
