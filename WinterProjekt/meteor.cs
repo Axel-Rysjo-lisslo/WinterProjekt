@@ -14,7 +14,24 @@ public class Meteor
     public int Width  { get; set; } = 60;
 
     List<Rectangle> listNamn = new List<Rectangle>();
-    
+
+
+public void Update()
+{
+pos += MeteorMovment(); 
+
+}
+    public Vector2 MeteorMovment()
+    {
+        
+        Vector2 Temp = new(0,0);
+        Temp.X = Speed;
+
+
+        return Temp;
+    }
+
+
 
 }
 

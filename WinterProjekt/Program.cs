@@ -20,7 +20,7 @@ while (!R.WindowShouldClose()) {
 p.Update();
     R.EndDrawing();
   
-
+m.Update();
 
 }
 
