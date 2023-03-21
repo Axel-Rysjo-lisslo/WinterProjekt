@@ -1,40 +1,56 @@
-using System;
-
-
-
-public class Meteor
+public class Meteor : Character
 {
- 
-    public Vector2 Spawn { get; set; } = new(100, 100);
-    public int Speed { get; set; } = 10;
-    
-    public Vector2 pos { get; set; }
 
-    public int Heigth{ get; set; } = 60;
-    public int Width  { get; set; } = 60;
-
-    List<Rectangle> listNamn = new List<Rectangle>();
+    public int TotalMeteorSpawned { get; set; } = 0;
 
 
-public void Update()
-{
-pos += MeteorMovment(); 
 
-}
-    public Vector2 MeteorMovment()
+    public Meteor()
     {
-        
-        Vector2 Temp = new(0,0);
-        Temp.X = Speed;
+        GetSpawn();
+        Speed = Convert.ToSingle(10 + (TotalMeteorSpawned * 0.1));
+        rect = new(spawn.X, spawn.Y, Heigth, Width);
+    }
+
+    public override void Update()
+    {
+
+        Movement();
+
+        rect.x += movement.X;
+        rect.y += movement.Y;
 
 
-        return Temp;
+    }
+
+    public override void Draw()
+    {
+        R.DrawRectangleRec(rect, Color.BLACK);
+    }
+
+    public void GetSpawn()
+    {
+        Random rnd = new Random();
+
+        spawn = new();
+
+
+        spawn.Y = rnd.Next(100,700);
+
+        spawn.X = -100;
     }
 
 
+    public override void Movement()
+    { 
 
+        movement.X = Speed;
+        
+    }
+
+    
+    
 }
-
 
 
 

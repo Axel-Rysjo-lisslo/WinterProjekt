@@ -1,43 +1,90 @@
 using System;
 
-public class Player
+public class Player : Character
 {
-    public Vector2 Spawn { get; set; } = new(100, 100);
-    public int Speed { get; set; } = 10;
-    
-    public Vector2 Pos { get; set; }
 
-    public int Heigth{ get; set; } = 60;
-    public int Width  { get; set; } = 60;
-
-    public void Update()
+    int time;
+    public static List<Meteor> MeteList = new();
+    public Player() 
     {
-    Pos += Movement();
+        Speed = 10;
+
+        rect = new(800,400, Width, Heigth);
+    }
+
+
+    public override void Update()
+    {
+        Movement();
+        MeteorSpawn();
+        rect.x += movement.X;
+        rect.y += movement.Y;
+        Console.WriteLine(movement);
+    }
+
+    public override void Draw()
+    {
+        R.DrawRectangleRec(rect, Color.GREEN);
     }
 
 //movment för gubben 
-    public Vector2 Movement()
+    public override void Movement()
     {
-        Vector2 Temp = new(0, 0);
         if (R.IsKeyDown(KeyboardKey.KEY_D))
         {
-            Temp.X = Speed;
+            movement.X = Speed;
         }
         else if(R.IsKeyDown(KeyboardKey.KEY_A))
         {
-          Temp.X = -Speed;
+          movement.X = -Speed;
+        } 
+        else
+        {
+            movement.X = 0;
         }
+
+
         if(R.IsKeyDown(KeyboardKey.KEY_W))
         {
-           Temp.Y = -Speed; 
+           movement.Y = -Speed; 
         }
         else if(R.IsKeyDown(KeyboardKey.KEY_S))
         {
-           Temp.Y = Speed; 
+           movement.Y = Speed; 
         }
-
-        return Temp; 
+        else
+        {
+            movement.Y = 0;
+        }
     }
+  
+public void MeteorSpawn()
+{
+
+    time++;
+    
+    if (time/120 > MeteList.Count())
+  {
+    
+    MeteList.Add(new());
+
+  }
+
+
+}
+  
+  public void ShouldPlayerDie()
+  {
+
+    foreach (Meteor m in MeteList)
+    {
+        
+            
+
+    }
+
+  }
+
 }
 
 
