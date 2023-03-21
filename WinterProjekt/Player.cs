@@ -76,10 +76,13 @@ public void MeteorSpawn()
   public void ShouldPlayerDie()
   {
 
-    foreach (Meteor m in MeteList)
+        for (int i = 0; i < MeteList.Count; i++)
     {
-        
-            
+            Meteor m = MeteList[i];
+            if (R.CheckCollisionRecs(rect, m.rect))
+          {
+            Environment.Exit(0);
+          }  
 
     }
 
