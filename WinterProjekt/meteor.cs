@@ -1,15 +1,16 @@
-public class Meteor : Character
+public  class Meteor : Character
 {
 
-    public int TotalMeteorSpawned { get; set; } = 0;
+    //public static int TotalMeteorSpawned { get; set; } = 0;
 
 
-
+    //Säger åt meteor att öka med 0,5 varje gång det spawnar en ny
     public Meteor()
     {
         GetSpawn();
-        Speed = Convert.ToSingle(10 + (TotalMeteorSpawned * 0.1));
+        Speed = Convert.ToSingle(10 + (GlobalProp.TotalMeteorSpawned * 0.5));
         rect = new(spawn.X, spawn.Y, Heigth, Width);
+        Console.WriteLine(GlobalProp.TotalMeteorSpawned);
     }
 
     public override void Update()
@@ -27,7 +28,8 @@ public class Meteor : Character
     {
         R.DrawRectangleRec(rect, Color.BLACK);
     }
-
+    
+    //Spawnar en meteor random på y axel mellan 100 och 700 
     public void GetSpawn()
     {
         Random rnd = new Random();
