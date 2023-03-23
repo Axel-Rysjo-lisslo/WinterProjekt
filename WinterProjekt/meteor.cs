@@ -2,7 +2,8 @@ public  class Meteor : Character
 {
 
     //public static int TotalMeteorSpawned { get; set; } = 0;
-
+    public int dirX { get; set; }
+    public int dirXSpeed { get; set; }
 
     //Säger åt meteor att öka med 0,5 varje gång det spawnar en ny
     public Meteor()
@@ -36,17 +37,31 @@ public  class Meteor : Character
 
         spawn = new();
 
-
         spawn.Y = rnd.Next(100,700);
 
-        spawn.X = -100;
+        Random rndX = new Random();
+
+        dirX = rndX.Next(0,10);
+
+    Console.WriteLine(dirX);
+
+        if (dirX > 5) 
+        {
+            spawn.X = -100;
+            dirXSpeed = 1;
+        } else {
+            spawn.X = 1700;
+            dirXSpeed = -1;
+        }
+
+        
     }
 
 
     public override void Movement()
     { 
 
-        movement.X = Speed;
+        movement.X = Speed*dirXSpeed;
         
     }
 
