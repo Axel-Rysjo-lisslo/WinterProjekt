@@ -3,8 +3,10 @@ using System;
 public class Player : Character
 {
 
-    int time;
+    //int time;
     public static List<Meteor> MeteList = new();
+
+    public static Texture2D rymdskepp = R.LoadTexture("recorces/rymdskepp-small.png");
     public Player() 
     {
         Speed = 10;
@@ -16,7 +18,7 @@ public class Player : Character
     public override void Update()
     {
      
-        ShouldPlayerDie();
+        //ShouldPlayerDie();
         Movement();
         MeteorSpawn();
         rect.x += movement.X;
@@ -26,7 +28,10 @@ public class Player : Character
 
     public override void Draw()
     {
-        R.DrawRectangleRec(rect, Color.GREEN);
+        //sR.DrawRectangleRec(rect, Color.GREEN);
+        
+        R.DrawTexture(rymdskepp, (int)rect.x, (int)rect.y, Color.WHITE);
+        
     }
 
 //movment för gubben 
@@ -60,24 +65,44 @@ public class Player : Character
         }
     }   
 
+    float timeBetweenMeteors = 1;
+    float timeSinceLastMeteor = 0; 
+
 
         //hämtar en meteor fårn metelåist varje sekund
 public void MeteorSpawn()
 {
 
-    time++;
-    
-    if (time/60 > MeteList.Count())
-  {
-    GlobalProp.TotalMeteorSpawned++;
-    MeteList.Add(new());
+    timeSinceLastMeteor += Raylib.GetFrameTime();
+    if (timeSinceLastMeteor > timeBetweenMeteors)
+    {
+        GlobalProp.TotalMeteorSpawned++;
+        timeSinceLastMeteor = 0;
+        if(timeBetweenMeteors>0.5) {
+            timeBetweenMeteors = Convert.ToSingle(timeBetweenMeteors - 0.05);
+        }
+        MeteList.Add(new());
+        
+    }
+
+//     time++;
+//     Console.WriteLine(time/GlobalProp.spawnSpeed + " " + MeteList.Count);
+
+//     if (time/GlobalProp.spawnSpeed > MeteList.Count())
+//   {
+//     GlobalProp.TotalMeteorSpawned++;
+//     if(GlobalProp.spawnSpeed >= 25) {
+//         GlobalProp.spawnSpeed--;
+        
+//     }
+//     MeteList.Add(new());
     
 
-  }
+  //}
 
 
 }
-  //kollar att när spelare och meteor krockar så stänger den av spelet
+  //kollar att när spelare och meteor krockar så stänger den av
   public void ShouldPlayerDie()
   {
 

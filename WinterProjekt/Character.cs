@@ -6,11 +6,13 @@ public class Character
 {
     public Rectangle rect;
     public Vector2 spawn ;
-    public float Speed { get; set; }
+    public float Speed { get; set; } 
+
+    
     
     public Vector2 Pos { get; set; }
     public Vector2 movement;
-    public int Heigth{ get; set; } = 60;
+    public int Heigth{ get; set; } = 46;
     public int Width  { get; set; } = 60;
 
     private static List<Character> allCharacters = new();
