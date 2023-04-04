@@ -9,7 +9,7 @@ public  class Meteor : Character
    public static Texture2D meteorit = R.LoadTexture("recorces/meteor-small.png");
 
     
-    //Säger åt meteor att öka med 0,5 varje gång det spawnar en ny
+    //Säger åt meteor att öka med 0,5 varje gång det spawnar en ny och så att den inte går över 20 i hastighet
     public Meteor()
     {
         GetSpawn();
@@ -70,7 +70,7 @@ public  class Meteor : Character
         
     }
 
-
+//kollar så att hastigheten på meteoriten ökar 
     public override void Movement()
     { 
 
