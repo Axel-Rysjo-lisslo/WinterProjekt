@@ -18,7 +18,7 @@ public class Player : Character
     public override void Update()
     {
      
-        //ShouldPlayerDie();
+        ShouldPlayerDie();
         Movement();
         MeteorSpawn();
         rect.x += movement.X;
@@ -69,7 +69,7 @@ public class Player : Character
     float timeSinceLastMeteor = 0; 
 
 
-        //hämtar en meteor fårn metelåist varje sekund
+        //hämtar en meteor från metelist varje sekund
 public void MeteorSpawn()
 {
 
@@ -85,24 +85,10 @@ public void MeteorSpawn()
         
     }
 
-//     time++;
-//     Console.WriteLine(time/GlobalProp.spawnSpeed + " " + MeteList.Count);
-
-//     if (time/GlobalProp.spawnSpeed > MeteList.Count())
-//   {
-//     GlobalProp.TotalMeteorSpawned++;
-//     if(GlobalProp.spawnSpeed >= 25) {
-//         GlobalProp.spawnSpeed--;
-        
-//     }
-//     MeteList.Add(new());
-    
-
-  //}
 
 
 }
-  //kollar att när spelare och meteor krockar så stänger den av
+  //kollar att när spelare och meteor krockar så stänger programmet
   public void ShouldPlayerDie()
   {
 
