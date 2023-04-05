@@ -23,9 +23,20 @@ while (!R.WindowShouldClose()) {
    // Console.WriteLine("test");
     R.DrawTexture(backgroundTexture,0,0, Color.WHITE);
 
-
+try
+{
+    
     Character.UpdateAll();
     Character.DrawAll();
+    
+}
+catch(Exception e)
+{
+
+Console.WriteLine(e.Message);
+
+}
+    
 
     R.EndDrawing();
 }
