@@ -10,7 +10,7 @@ public class Character
 
     
     
-    public Vector2 Pos { get; set; }
+    
     public Vector2 movement;
     public int Heigth{ get; set; } = 46;
     public int Width  { get; set; } = 60;

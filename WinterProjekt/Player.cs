@@ -18,7 +18,7 @@ public class Player : Character
     public override void Update()
     {
      
-        ShouldPlayerDie();
+       // ShouldPlayerDie();
         Movement();
         MeteorSpawn();
         rect.x += movement.X;
@@ -62,8 +62,20 @@ public class Player : Character
         else
         {
             movement.Y = 0;
+        
         }
+
+        //gör så Player inte kan gå utan fär skärmen utan kommer utt på motsat sida istället
+        if (rect.x < 0) rect.x = Raylib.GetScreenWidth() - rect.width;
+        if (rect.x + rect.width > Raylib.GetScreenWidth()) rect.x = 0;
+
+         if (rect.y < 0) rect.y = Raylib.GetScreenHeight() - rect.height;
+         if(rect.y + rect.height >Raylib.GetScreenHeight()) rect.y =0;
+         
+
     }   
+
+
 
     float timeBetweenMeteors = 1;
     float timeSinceLastMeteor = 0; 
@@ -88,7 +100,7 @@ public void MeteorSpawn()
 
 
 }
-  //kollar att när spelare och meteor krockar så stänger programmet
+  //kollar att när spelare och meteor krockar så stänger pogrammet av
   public void ShouldPlayerDie()
   {
 

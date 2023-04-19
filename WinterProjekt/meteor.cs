@@ -21,7 +21,7 @@ public  class Meteor : Character
         }
         Console.WriteLine(GlobalProp.BaseSpeed);
         rect = new(spawn.X, spawn.Y, Heigth, Width);
-        // Console.WriteLine(GlobalProp.TotalMeteorSpawned);
+       
     }
 
     public override void Update()
